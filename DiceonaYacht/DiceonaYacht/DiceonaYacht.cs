@@ -103,155 +103,34 @@ namespace DiceonaYacht
 
                 int max = 0;
                 string maxstring = "";
-                int tempmax = 0;
                 
+
+                Dictionary<string, int> tracker = new Dictionary<string, int>();
+
+                tracker.Add("Ones", Ones(Counter));
+                tracker.Add("Twos", Twos(Counter));
+                tracker.Add("Threes", Threes(Counter));
+                tracker.Add("Fours", Fours(Counter));
+                tracker.Add("Fives", Fives(Counter));
+                tracker.Add("Sixes", Sixes(Counter));
+                tracker.Add("Sevens", Sevens(Counter));
+                tracker.Add("Eights", Eights(Counter));
+                tracker.Add("ThreeOfAKind", ThreeOfAKind(Counter));
+                tracker.Add("FourOfAKind", FourOfAKind(Counter));
+                tracker.Add("FullHouse", FullHouse(Counter));
+                tracker.Add("SmallStraight", SmallStraight(dices));
+                tracker.Add("LargeStraight", LargeStraight(dices));
+                tracker.Add("AllDifferent", AllDifferent(Counter));
+                tracker.Add("Chance", Chance(Counter));
+                tracker.Add("AllSame", AllSame(Counter));
                 
-                
-                
-                // get the value into max temp and compare with current max
-                // in case current max is greater than max, set max as temp max
-                // set max string to function called to set temp max
-                tempmax = Ones(Counter);
-                if (tempmax > max)
+                foreach(KeyValuePair<string,int> temp in tracker)
                 {
-                    max = tempmax;
-                    maxstring = "Ones";
-                    
-                }
-                // get the value into max temp and compare with current max
-                // in case current max is greater than max, set max as temp max
-                // set max string to function called to set temp max
-                tempmax = Twos(Counter);
-                if (tempmax > max)
-                {
-                    max = tempmax;
-                    maxstring = "Twos";
-                }
-                // get the value into max temp and compare with current max
-                // in case current max is greater than max, set max as temp max
-                // set max string to function called to set temp max
-                tempmax = Threes(Counter);
-                if (tempmax > max)
-                {
-                    max = tempmax;
-                    maxstring = "Threes";
-                }
-                // get the value into max temp and compare with current max
-                // in case current max is greater than max, set max as temp max
-                // set max string to function called to set temp max
-                tempmax = Fours(Counter);
-                if (tempmax > max)
-                {
-                    max = tempmax;
-                    maxstring = "Fours";
-                }
-                // get the value into max temp and compare with current max
-                // in case current max is greater than max, set max as temp max
-                // set max string to function called to set temp max
-                tempmax = Fives(Counter);
-                if (tempmax > max)
-                {
-                    max = tempmax;
-                    maxstring = "Fives";
-                }
-                // get the value into max temp and compare with current max
-                // in case current max is greater than max, set max as temp max
-                // set max string to function called to set temp max
-                tempmax = Sixes(Counter);
-                if (tempmax > max)
-                {
-                    max = tempmax;
-                    maxstring = "Sixes";
-                }
-                // get the value into max temp and compare with current max
-                // in case current max is greater than max, set max as temp max
-                // set max string to function called to set temp max
-                tempmax = Sevens(Counter);
-                if (tempmax > max)
-                {
-                    max = tempmax;
-                    maxstring = "Sevens";
-                }
-                // get the value into max temp and compare with current max
-                // in case current max is greater than max, set max as temp max
-                // set max string to function called to set temp max
-                tempmax = Eights(Counter);
-                if (tempmax > max)
-                {
-                    max = tempmax;
-                    maxstring = "Eights";
-                }
-                // get the value into max temp and compare with current max
-                // in case current max is greater than max, set max as temp max
-                // set max string to function called to set temp max
-                tempmax = ThreeOfAKind(Counter);
-                if (tempmax > max)
-                {
-                    max = tempmax;
-                    maxstring = "ThreeOfAKind";
-                }
-                // get the value into max temp and compare with current max
-                // in case current max is greater than max, set max as temp max
-                // set max string to function called to set temp max
-                tempmax = FourOfAKind(Counter);
-                if (tempmax > max)
-                {
-                    max = tempmax;
-                    maxstring = "FourOfAKind";
-                }
-                // get the value into max temp and compare with current max
-                // in case current max is greater than max, set max as temp max
-                // set max string to function called to set temp max
-                tempmax = FullHouse(Counter);
-                if (tempmax > max)
-                {
-                    max = tempmax;
-                    maxstring = "FullHouse";
-                }
-                // get the value into max temp and compare with current max
-                // in case current max is greater than max, set max as temp max
-                // set max string to function called to set temp max
-                tempmax = SmallStraight(dices);
-                if (tempmax > max)
-                {
-                    max = tempmax;
-                    maxstring = "SmallStraight";
-                }
-                // get the value into max temp and compare with current max
-                // in case current max is greater than max, set max as temp max
-                // set max string to function called to set temp max
-                tempmax = LargeStraight(dices);
-                if (tempmax > max)
-                {
-                    max = tempmax;
-                    maxstring = "LargeStraight";
-                }
-                // get the value into max temp and compare with current max
-                // in case current max is greater than max, set max as temp max
-                // set max string to function called to set temp max
-                tempmax = AllDifferent(Counter);
-                if (tempmax > max)
-                {
-                    max = tempmax;
-                    maxstring = "AllDifferent";
-                }
-                // get the value into max temp and compare with current max
-                // in case current max is greater than max, set max as temp max
-                // set max string to function called to set temp max
-                tempmax = Chance(Counter);
-                if (tempmax > max)
-                {
-                    max = tempmax;
-                    maxstring = "Chance";
-                }
-                // get the value into max temp and compare with current max
-                // in case current max is greater than max, set max as temp max
-                // set max string to function called to set temp max
-                tempmax = AllSame(Counter);
-                if (tempmax > max)
-                {
-                    max = tempmax;
-                    maxstring = "AllSame";
+                    if(temp.Value > max)
+                    {
+                        max = temp.Value;
+                        maxstring = temp.Key;
+                    }
                 }
 
                 return maxstring;

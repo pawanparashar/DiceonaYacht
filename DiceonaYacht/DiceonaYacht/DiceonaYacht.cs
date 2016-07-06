@@ -33,78 +33,49 @@ namespace DiceonaYacht
                 }
             }
 
-            if (category == "ones")
+            switch (category)
             {
-                return Ones(Counter);
+                case "ones":
+                    return Ones(Counter);
+                case "Twos":
+                    return Twos(Counter);
+                case "Threes":
+                    return Threes(Counter);
+                case "Fours":
+                    return Fours(Counter);
+                case "Fives":
+                    return Fives(Counter);
+                case "Sixes":
+                    return Sixes(Counter);
+                case "Sevens":
+                    return Sevens(Counter);
+                case "Eights":
+                    return Eights(Counter);
+                case "ThreeOfAKind":
+                    return ThreeOfAKind(Counter);
+                case "FourOfAKind":
+                    return FourOfAKind(Counter);
+                case "FullHouse":
+                    return FullHouse(Counter);
+                case "SmallStraight":
+                    return SmallStraight(dices);
+                case "LargeStraight":
+                    return LargeStraight(dices);
+                case "AllDifferent":
+                    return AllDifferent(Counter);
+                case "Chance":
+                    return Chance(Counter);
+                case "AllSame":
+                    return AllSame(Counter);
+                default:
+                    return 0;
             }
-            else if (category == "Twos")
-            {
-                return Twos(Counter);
-            }
-            else if (category == "Threes")
-            {
-                return Threes(Counter);
-            }
-            else if (category == "Fours")
-            {
-                return Fours(Counter);
-            }
-            else if (category == "Fives")
-            {
-                return Fives(Counter);
-            }
-            else if (category == "Sixes")
-            {
-                return Sixes(Counter);
-            }
-            else if (category == "Sevens")
-            {
-                return Sevens(Counter);
-            }
-            else if (category == "Eights")
-            {
-                return Eights(Counter);
-            }
-            else if (category == "ThreeOfAKind")
-            {
-                return ThreeOfAKind(Counter);
-            }
-            else if (category == "FourOfAKind")
-            {
-                return FourOfAKind(Counter);
-            }
-            else if (category == "FullHouse")
-            {
-                return FullHouse(Counter);
-            }
-            else if (category == "SmallStraight")
-            {
-                return SmallStraight(dices);
 
-            }
-            else if (category == "LargeStraight")
-            {
-
-                return LargeStraight(dices);
-
-            }
-            else if (category == "AllDifferent")
-            {
-                return AllDifferent(Counter);
-
-            }
-            else if (category == "Chance")
-            {
-                return Chance(Counter);
-
-            }
-            else if (category == "AllSame")
-            {
-
-                return AllSame(Counter);
-            }
-            else
-            { return 0; }
+            
+            
+            
+            
+            
 
 
         }
@@ -133,6 +104,10 @@ namespace DiceonaYacht
                 int max = 0;
                 string maxstring = "";
                 int tempmax = 0;
+                
+                
+                
+                
                 // get the value into max temp and compare with current max
                 // in case current max is greater than max, set max as temp max
                 // set max string to function called to set temp max
